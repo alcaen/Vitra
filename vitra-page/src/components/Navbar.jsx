@@ -12,9 +12,13 @@ const Navbar = () => {
     { net: "instagram", site: "https://www.instagram.com" },
     { net: "whatsapp", site: "https://www.google.com" },
   ];
+  const pages = [
+    { name: "Sobre Nosotros", to: "/" },
+    { name: "Precios", to: "/" },
+    { name: "Ubicacion", to: "/" },
+  ];
 
   function vitraLogoClick() {
-    console.log("MENU");
     setShowMenu(!showMenu);
   }
 
@@ -22,26 +26,13 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="left-side" onClick={() => vitraLogoClick()}>
         <ul className={showMenu ? "ul-visible" : "ul-non-visible"}>
-          <li>
-            <Link to={"/"} onClick={() => vitraLogoClick()}>
-              Coffee
-            </Link>
-          </li>
-          <li>
-            <Link to={"/"} onClick={() => vitraLogoClick()}>
-              Coffee
-            </Link>
-          </li>
-          <li>
-            <Link to={"/"} onClick={() => vitraLogoClick()}>
-              Coffee
-            </Link>
-          </li>
-          <li>
-            <Link to={"/"} onClick={() => vitraLogoClick()}>
-              Coffee
-            </Link>
-          </li>
+          {pages.map((element) => (
+            <li key={element.name}>
+              <Link to={element.to} onClick={() => vitraLogoClick()}>
+                {element.name}
+              </Link>
+            </li>
+          ))}
         </ul>
         <div
           className={
